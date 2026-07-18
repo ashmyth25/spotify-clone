@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Spotify — Web Player</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Circular+Std:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="sidebar">
+
+      <div class="sidebar-top">
+        <!-- Logo -->
+        <div class="logo">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+          </svg>
+          <span>Spotify</span>
+        </div>
+
+        <!-- Nav -->
+        <nav class="sidebar-nav">
+          <a href="#" class="nav-item active" data-page="home">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12.5 3.247a1 1 0 0 0-1 0L4 7.577V20h4.5v-6a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v6H20V7.577l-7.5-4.33zm-2-1.732a3 3 0 0 1 3 0l7.5 4.33A2 2 0 0 1 22 7.577V21a1 1 0 0 1-1 1h-6.5a1 1 0 0 1-1-1v-6h-3v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.577a2 2 0 0 1 1-1.732l7.5-4.33z"/></svg>
+            Home
+          </a>
+          <a href="#" class="nav-item" data-page="search">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M10.533 1.279c-5.18 0-9.407 4.927-9.407 9.407 0 5.18 4.227 9.407 9.407 9.407 2.348 0 4.49-.86 6.144-2.274l3.663 3.662a1 1 0 1 0 1.414-1.414l-3.662-3.663a9.371 9.371 0 0 0 2.275-6.144c-.001-5.18-4.228-9.981-9.834-9.981zm-7.407 9.407c0-4.074 3.333-7.407 7.407-7.407s7.407 3.333 7.407 7.407-3.333 7.407-7.407 7.407-7.407-3.333-7.407-7.407z"/></svg>
+            Search
+          </a>
+          <a href="#" class="nav-item" data-page="library">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M3 22a1 1 0 0 1-1-1V3a1 1 0 0 1 2 0v18a1 1 0 0 1-1 1zM15.5 2.134A1 1 0 0 0 14 3v18a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V6.464a1 1 0 0 0-.5-.866l-6-3.464zM9 2a1 1 0 0 0-1 1v18a1 1 0 0 0 2 0V3a1 1 0 0 0-1-1z"/></svg>
+            Your Library
+          </a>
+        </nav>
+      </div>
+
+      <!-- Playlists -->
+      <div class="sidebar-playlists">
+        <div class="playlist-actions">
+          <button class="icon-btn" title="Create playlist">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 3a1 1 0 0 1 1 1v7h7a1 1 0 1 1 0 2h-7v7a1 1 0 1 1-2 0v-7H4a1 1 0 1 1 0-2h7V4a1 1 0 0 1 1-1z"/></svg>
+          </button>
+          <button class="icon-btn" title="Browse podcasts">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M4 6a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1zm0 5a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1zm1 4a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2H5z"/></svg>
+          </button>
+        </div>
+
+        <div class="playlist-list" id="playlistList">
+          <!-- injected by JS -->
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- ── MAIN CONTENT ── -->
+    <div class="content-wrap">
+
+      <!-- Top bar -->
+      <header class="topbar">
+        <div class="topbar-nav">
+          <button class="nav-arrow" id="backBtn">&#8249;</button>
+          <button class="nav-arrow" id="fwdBtn">&#8250;</button>
+        </div>
+        <div class="topbar-right">
+          <button class="install-btn">Install App</button>
+          <div class="user-avatar">A</div>
+        </div>
+      </header>
+
+      <!-- Main scroll area -->
+      <main class="main-content" id="mainContent">
+
+        <!-- HOME PAGE -->
+        <div id="homePage">
+          <div class="greeting" id="greeting"></div>
+
+          <!-- Quick picks row -->
+          <div class="quick-picks" id="quickPicks"></div>
+
+          <!-- Recently played -->
+          <section class="section">
+            <div class="section-header">
+              <h2>Recently Played</h2>
+              <a href="#" class="see-all">Show all</a>
+            </div>
+            <div class="cards-row" id="recentlyPlayed"></div>
+          </section>
+
+          <!-- Made for you -->
+          <section class="section">
+            <div class="section-header">
+              <h2>Made For You</h2>
+              <a href="#" class="see-all">Show all</a>
+            </div>
+            <div class="cards-row" id="madeForYou"></div>
+          </section>
+
+          <!-- Trending -->
+          <section class="section">
+            <div class="section-header">
+              <h2>Trending Now</h2>
+              <a href="#" class="see-all">Show all</a>
+            </div>
+            <div class="cards-row" id="trending"></div>
+          </section>
+        </div>
+
+        <!-- SEARCH PAGE -->
+        <div id="searchPage" class="hidden">
+          <h1 class="page-title">Search</h1>
+          <div class="search-input-wrap">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M10.533 1.279c-5.18 0-9.407 4.927-9.407 9.407 0 5.18 4.227 9.407 9.407 9.407 2.348 0 4.49-.86 6.144-2.274l3.663 3.662a1 1 0 1 0 1.414-1.414l-3.662-3.663a9.371 9.371 0 0 0 2.275-6.144c-.001-5.18-4.228-9.981-9.834-9.981zm-7.407 9.407c0-4.074 3.333-7.407 7.407-7.407s7.407 3.333 7.407 7.407-3.333 7.407-7.407 7.407-7.407-3.333-7.407-7.407z"/></svg>
+            <input type="text" placeholder="What do you want to listen to?" id="searchPageInput"/>
+          </div>
+          <div class="search-results" id="searchResults"></div>
+          <h2 class="section-subtitle">Browse all</h2>
+          <div class="genre-grid" id="genreGrid"></div>
+        </div>
+
+        <!-- LIBRARY PAGE -->
+        <div id="libraryPage" class="hidden">
+          <h1 class="page-title">Your Library</h1>
+          <div class="library-filters">
+            <button class="lib-filter active">Playlists</button>
+            <button class="lib-filter">Albums</button>
+            <button class="lib-filter">Artists</button>
+          </div>
+          <div class="library-list" id="libraryList"></div>
+        </div>
+
+      </main>
+    </div>
+
+    <!-- ── NOW PLAYING SIDEBAR ── -->
+    <aside class="now-playing-bar hidden" id="nowPlayingBar">
+      <div class="np-header">
+        <span>Now Playing</span>
+        <button class="close-np" id="closeNp">✕</button>
+      </div>
+      <div class="np-art-wrap">
+        <div class="np-art" id="npArt"></div>
+      </div>
+      <p class="np-song" id="npSong"></p>
+      <p class="np-artist" id="npArtist"></p>
+      <div class="np-actions">
+        <button class="np-action-btn liked" id="npLike">♥</button>
+        <button class="np-action-btn">⊕</button>
+        <button class="np-action-btn">•••</button>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- ── PLAYER BAR ── -->
+  <footer class="player-bar">
+
+    <!-- Current track -->
+    <div class="player-track">
+      <div class="player-art" id="playerArt"></div>
+      <div class="player-track-info">
+        <p class="player-song" id="playerSong">—</p>
+        <p class="player-artist" id="playerArtist">Select a track</p>
+      </div>
+      <button class="heart-btn" id="heartBtn">♡</button>
+    </div>
+
+    <!-- Controls -->
+    <div class="player-controls">
+      <div class="ctrl-btns">
+        <button class="ctrl-btn" id="shuffleBtn" title="Shuffle">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.676 3.576a.5.5 0 0 0-.353-.853h-2.744a4.5 4.5 0 0 0-3.279 1.42l-.83.93.945 1.055.764-.853A3 3 0 0 1 14.58 4.27h2.744l-1.06 1.06a.5.5 0 0 0 .707.707l2.12-2.121a.5.5 0 0 0 0-.354l-2.12-2.121a.5.5 0 0 0-.707.707l1.412 1.428zM3 7.5A1.5 1.5 0 0 1 4.5 6h1.17a4.5 4.5 0 0 1 3.339 1.48l4.95 5.52A3 3 0 0 0 16.185 14H18.5a.5.5 0 0 1 0 1h-2.315a4.5 4.5 0 0 1-3.34-1.48L7.897 8A3 3 0 0 0 5.67 7H4.5A1.5 1.5 0 0 1 3 5.5V7.5zm14.676 9.348 1.06-1.06a.5.5 0 0 0-.707-.707l-2.12 2.12a.5.5 0 0 0 0 .708l2.12 2.121a.5.5 0 0 0 .707-.707l-1.06-1.06H15.18a4.5 4.5 0 0 1-3.279-1.42l-.83-.93-.945 1.055.83.93A5.5 5.5 0 0 0 14.58 19h2.744l-1.648-.152z"/></svg>
+        </button>
+        <button class="ctrl-btn" id="prevBtn" title="Previous">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M3.3 1a.7.7 0 0 1 .7.7v8.05L13.12 4a.7.7 0 0 1 1.13.55v4.26l8.9-5.3a.7.7 0 0 1 1.07.59v13.8a.7.7 0 0 1-1.07.59L14.25 13.9v4.26a.7.7 0 0 1-1.13.55L4 13.25V21.3a.7.7 0 0 1-1.4 0V1.7a.7.7 0 0 1 .7-.7z"/></svg>
+        </button>
+        <button class="play-btn" id="playBtn">
+          <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M7.05 3.606l13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"/></svg>
+          <svg id="pauseIcon" viewBox="0 0 24 24" fill="currentColor" width="20" height="20" class="hidden"><path d="M5.7 3a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7H5.7zm10 0a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7h-2.6z"/></svg>
+        </button>
+        <button class="ctrl-btn" id="nextBtn" title="Next">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.7 1a.7.7 0 0 0-.7.7v8.05L9.88 4a.7.7 0 0 0-1.13.55v4.26L.85 3.51A.7.7 0 0 0-.22 4.1v13.8a.7.7 0 0 0 1.07.59l8.9-5.29v4.26a.7.7 0 0 0 1.13.55L21 12.25V21.3a.7.7 0 0 0 1.4 0V1.7a.7.7 0 0 0-.7-.7z"/></svg>
+        </button>
+        <button class="ctrl-btn" id="repeatBtn" title="Repeat">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M0 13.151a1 1 0 0 1 1-1h3.585l-1.292-1.293a1 1 0 0 1 1.414-1.414l3 3a1 1 0 0 1 0 1.414l-3 3a1 1 0 0 1-1.414-1.414l1.292-1.293H1a1 1 0 0 1-1-1zm13.293-7.584a1 1 0 0 1 1.414 0l3 3a1 1 0 0 1 0 1.414l-3 3a1 1 0 0 1-1.414-1.414l1.292-1.293H6a1 1 0 0 1 0-2h8.585l-1.292-1.293a1 1 0 0 1 0-1.414z"/></svg>
+        </button>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="progress-wrap">
+        <span class="time" id="currentTime">0:00</span>
+        <div class="progress-bar" id="progressBar">
+          <div class="progress-fill" id="progressFill"></div>
+          <div class="progress-thumb" id="progressThumb"></div>
+        </div>
+        <span class="time" id="totalTime">0:00</span>
+      </div>
+    </div>
+
+    <!-- Volume -->
+    <div class="player-right">
+      <button class="ctrl-btn" id="npToggle" title="Now Playing">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M13 1a1 1 0 1 0-2 0v10.586L8.707 9.293a1 1 0 0 0-1.414 1.414l4 4a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L13 11.586V1zM3 21a1 1 0 0 0 1 1h16a1 1 0 1 0 0-2H4a1 1 0 0 0-1 1z"/></svg>
+      </button>
+      <button class="ctrl-btn vol-btn" id="muteBtn">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M13 3.14a1 1 0 0 0-1.28-.96L6.33 3.6A1 1 0 0 0 5.6 4.53v11.94a2.5 2.5 0 1 0 2 2.45V12.2l6-1.33v3.73a2.5 2.5 0 1 0 2 2.45V3.14H13z"/></svg>
+      </button>
+      <div class="vol-bar" id="volBar" role="slider" aria-label="Volume" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" tabindex="0">
+        <div class="vol-fill" id="volFill" style="width:70%"></div>
+        <div class="vol-thumb" id="volThumb" style="left:70%"></div>
+      </div>
+    </div>
+
+  </footer>
+
+  <audio id="audioPlayer" preload="metadata"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
