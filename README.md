@@ -7,23 +7,6 @@ A modern and responsive **Spotify-inspired web music player** built using **HTML
 ## 🚀 Live Demo
 
 🔗 https://ashmyth25.github.io/spotify-clone/
-
----
-
-## 📸 Screenshots
-
-### 🏠 Home Page
-![Home](screenshots/home.png)
-
-### 🔍 Search Page
-![Search](screenshots/search.png)
-
-### 📚 Library
-![Library](screenshots/library.png)
-
-### 🎧 Music Player
-![Player](screenshots/player.png)
-
 ---
 
 ## ✨ Features
